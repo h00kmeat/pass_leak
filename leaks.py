@@ -1,5 +1,4 @@
 import argparse
-import json
 import requests
 import hashlib
 
@@ -18,7 +17,6 @@ def check_leak(password):
     resp = requests.request("GET","https://api.pwnedpasswords.com/range/"+ cut_hash)
     
     hashes = resp.content.decode().split('\r\n')
-    # print(hashes)
     for h in hashes:
         leak_hash = h.split(":")[0]
         
